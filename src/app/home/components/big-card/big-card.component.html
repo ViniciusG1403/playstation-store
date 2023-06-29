@@ -1,21 +1,25 @@
 <main>
-  <div
-    class="main-container"
-    style="
-      background-image: url(https://upload.wikimedia.org/wikipedia/pt/8/84/Battlefield_4_capa.png);
-    "
-  >
+  <div class="main-container" *ngFor="let game of games">
+    <img
+      [src]="[game.image.urlCapa]"
+      [alt]="[game.image.alt]"
+      [title]="[game.image.title]"
+    />
+
     <div class="details-container">
       <div class="description">
-        <h1>Play It Now!</h1>
+        <h1>{{ game.descriptionCard }}</h1>
         <div class="type-and-plataform">
           <span class="divider"></span>
-          <span>Full Game | PS3 PS4 PS5</span>
+          <span>{{ game.descriptionAndPlataformGame }}</span>
         </div>
       </div>
       <div class="price-container">
-        <h1>$59.99</h1>
+        <h1>{{ game.price | currency }}</h1>
       </div>
+    </div>
+    <div class="tag">
+      <span>{{ game.tag }}</span>
     </div>
   </div>
 </main>
